@@ -3,9 +3,9 @@
 
 declare -a Database=test
 
-declare -a TableName=$(awk 'NR>1' /home/sakha-t4502/input.csv)
+declare -a TableName=$(awk 'NR>1'  C:/Users/Samir/.jenkins/workspace/MarketingVitalP1/input.csv)
 
-declare -a Path=/home/sakha-t4502/output.csv
+declare -a Path=C:/Users/Samir/.jenkins/workspace/MarketingVitalP1/output.csv
 
 for j in ${TableName[@]}
 do

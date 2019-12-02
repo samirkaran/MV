@@ -1,10 +1,10 @@
 #!/bin/bash -l
 
-declare -a Database=tpcds
+Database=tpcds
 
-declare -a TableName=$(awk 'NR>1' /var/lib/jenkins/workspace/MarketingVitals/input.csv)
+TableName=$(awk 'NR>1' /var/lib/jenkins/workspace/MarketingVitals/input.csv)
 
-declare -a Path=/var/lib/jenkins/workspace/MarketingVitals/output.csv
+Path=/var/lib/jenkins/workspace/MarketingVitals/output.csv
 
 for j in ${TableName[@]}
 do

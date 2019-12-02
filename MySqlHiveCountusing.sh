@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 
 declare -a Database=tpcds
 

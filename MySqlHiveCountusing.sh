@@ -6,7 +6,7 @@ TableName=$(awk 'NR>1' /var/lib/jenkins/workspace/MarketingVitals/input.csv)
 
 Path=/var/lib/jenkins/workspace/MarketingVitals/output.csv
 
-for j in ${TableName[@]}
+for j in ${TableName}
 do
           sqlcount=$(mysql -h "relational.fit.cvut.cz" -u "guest" "-prelational" ${Database} -e "select count(*) from ${Database}.${j}" -s)
 

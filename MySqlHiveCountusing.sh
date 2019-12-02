@@ -2,9 +2,9 @@
 
 declare -a Database=tpcds
 
-declare -a TableName=$(awk 'NR>1' C:/Users/Samir/.jenkins/workspace/MarketingVitalP1/input.csv)
+declare -a TableName=$(awk 'NR>1' /var/lib/jenkins/workspace/MarketingVitals/input.csv)
 
-declare -a Path=C:/Users/Samir/.jenkins/workspace/MarketingVitalP1/output.csv
+declare -a Path=/var/lib/jenkins/workspace/MarketingVitals/output.csv
 
 for j in ${TableName[@]}
 do

@@ -6,13 +6,13 @@ TableName=$(awk 'NR>1' /var/lib/jenkins/workspace/MarketingVitals/input.csv)
 
 Path=/var/lib/jenkins/workspace/MarketingVitals/output.csv
 
-start-all.sh
-
 for j in ${TableName}
 do
           sqlcount=$(mysql -h "relational.fit.cvut.cz" -u "guest" "-prelational" ${Database} -e "select count(*) from ${Database}.${j}" -s)
    
-          hivecount=$(hive -S -e "USE ${Database}; select count(*) from ${Database}.${j}")
+          hive -e "ANALYZE TABLE ${Database}.${j} COMPUTE STATISTICS"
+ 
+          hivecount=$(hive -e "select count(*) from ${Database}.${j}")
 
           zz=$(printf '%s\n' ${sqlcount} ${hivecount} | paste -sd ',')
 

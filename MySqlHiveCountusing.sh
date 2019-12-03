@@ -11,10 +11,8 @@ start-all.sh
 for j in ${TableName}
 do
           sqlcount=$(mysql -h "relational.fit.cvut.cz" -u "guest" "-prelational" ${Database} -e "select count(*) from ${Database}.${j}" -s)
-
-          hive -e "ANALYZE TABLE ${Database}.${j} COMPUTE STATISTICS"
    
-          hivecount=$(hive -e "select count(*) from ${Database}.${j}")
+          hivecount=$(hive -S -e "USE ${Database}; select count(*) from ${Database}.${j}")
 
           zz=$(printf '%s\n' ${sqlcount} ${hivecount} | paste -sd ',')
 

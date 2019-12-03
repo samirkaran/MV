@@ -2,9 +2,9 @@
 
 Database=tpcds
 
-TableName=$(awk 'NR>1' /var/lib/jenkins/workspace/MarketingVitals/input.csv)
+TableName=$(awk 'NR>1' /home/hdp/input.csv)
 
-Path=/var/lib/jenkins/workspace/MarketingVitals/output.csv
+Path=/home/hdp/output.csv
 
 for j in ${TableName}
 do
